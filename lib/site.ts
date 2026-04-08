@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "UjiUji Web",
   description: "言葉になる前のしんどさを、そっと受け止める場所",
-  url: "https://example.com",
+  url: "https://ujiuji-web-kzau.vercel.app",
   appName: "UjiUji"
 };
 
