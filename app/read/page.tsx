@@ -1,0 +1,29 @@
+import type { Metadata } from "next";
+import { EntryList } from "@/components/EntryList";
+import { PageIntro } from "@/components/PageIntro";
+
+export const metadata: Metadata = {
+  title: "読みもの",
+  description: "今の気持ちに近い受け止めページから読めます。最後まで読まなくても大丈夫です。"
+};
+
+export default function ReadIndexPage() {
+  return (
+    <div className="stack-2xl page-pad">
+      <PageIntro
+        eyebrow="読みもの"
+        title="読みもの"
+        lead={
+          <>
+            <p>今の気持ちに近いものから、静かに読めます。</p>
+            <p>最後まで読まなくても大丈夫です。</p>
+          </>
+        }
+      />
+
+      <section className="text-shell read-list-wrap">
+        <EntryList />
+      </section>
+    </div>
+  );
+}

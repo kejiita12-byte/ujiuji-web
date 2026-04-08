@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model WordFragment {
+  id               String          @id @default(cuid())
+  text             String          @db.VarChar(32)
+  normalizedText   String          @db.VarChar(32)
+  source           WordSource
+  status           WordStatus      @default(visible)
+  locale           String?         @db.VarChar(16)
+  moderationState  ModerationState @default(clean)
+  moderationReason String?         @db.VarChar(64)
+  sessionHash      String?         @db.VarChar(128)
+  ipHash           String?         @db.VarChar(128)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  hiddenAt         DateTime?
+  deletedAt        DateTime?
+
+  @@index([status, createdAt(sort: Desc)])
+  @@index([source, status, createdAt(sort: Desc)])
+  @@index([normalizedText])
+  @@index([ipHash, createdAt(sort: Desc)])
+  @@index([sessionHash, createdAt(sort: Desc)])
+}
+
+enum WordSource {
+  user
+  seed
+}
+
+enum WordStatus {
+  visible
+  hidden
+  rejected
+}
+
+enum ModerationState {
+  clean
+  blocked
+}

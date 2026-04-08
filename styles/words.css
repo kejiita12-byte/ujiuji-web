@@ -1,0 +1,337 @@
+.words-intro-hints {
+  color: var(--text-secondary);
+}
+
+.words-compose {
+  display: grid;
+  gap: 14px;
+}
+
+.words-input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.words-input {
+  flex: 1 1 320px;
+  min-width: 0;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-fainter);
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--text-primary);
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    opacity 160ms ease;
+}
+
+.words-input::placeholder {
+  color: var(--text-faint);
+}
+
+.words-input:focus {
+  border-color: rgba(61, 56, 51, 0.16);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.words-input:disabled {
+  opacity: 0.66;
+}
+
+.words-submit,
+.aquarium-shuffle {
+  appearance: none;
+  border: 1px solid var(--line-fainter);
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--text-primary);
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.words-submit:hover:not(:disabled),
+.aquarium-shuffle:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(61, 56, 51, 0.08);
+}
+
+.words-submit:active:not(:disabled),
+.aquarium-shuffle:active {
+  transform: translateY(0.5px);
+}
+
+.words-submit:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
+
+.words-compose-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.words-count {
+  margin: 0;
+  color: var(--text-faint);
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+.words-error {
+  margin: 0;
+  color: rgba(120, 92, 72, 0.82);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.words-aquarium-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+}
+
+.word-aquarium {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(61, 56, 51, 0.05);
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0.12) 28%,
+      transparent 62%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0.14) 14%,
+      rgba(227, 222, 214, 0.14) 54%,
+      rgba(209, 204, 196, 0.2) 100%
+    );
+}
+
+.word-aquarium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 14% 20%,
+      rgba(255, 255, 255, 0.14) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 72% 18%,
+      rgba(255, 255, 255, 0.1) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 34% 62%,
+      rgba(255, 255, 255, 0.08) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 82% 74%,
+      rgba(255, 255, 255, 0.08) 0 2px,
+      transparent 3px
+    );
+  opacity: 0.7;
+}
+
+.word-aquarium::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 14px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.04)
+  );
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.word-aquarium-surface {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% -10%,
+      rgba(255, 255, 255, 0.18),
+      transparent 56%
+    ),
+    linear-gradient(
+      to top,
+      rgba(209, 204, 196, 0.1) 0%,
+      rgba(209, 204, 196, 0.04) 16%,
+      transparent 34%
+    );
+  opacity: 0.72;
+}
+
+.word-capsule {
+  box-sizing: border-box;
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background:
+    radial-gradient(
+      ellipse at 30% 28%,
+      rgba(255, 255, 255, 0.24) 0%,
+      rgba(255, 255, 255, 0.14) 38%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  color: rgba(61, 56, 51, 0.84);
+  line-height: 1;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+  transform-origin: center center;
+  transition:
+    opacity 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+  will-change: transform, opacity, left, top;
+  pointer-events: none;
+}
+
+.word-capsule-highlight {
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  width: 42%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.08)
+  );
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.word-capsule-text {
+  position: relative;
+  z-index: 1;
+}
+
+.word-capsule.is-optimistic {
+  border-color: rgba(255, 255, 255, 0.48);
+  background:
+    radial-gradient(
+      ellipse at 30% 28%,
+      rgba(255, 255, 255, 0.34) 0%,
+      rgba(255, 255, 255, 0.18) 40%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.word-capsule.is-new-arrival {
+  border-color: rgba(255, 255, 255, 0.54);
+}
+
+@media (max-width: 900px) {
+  .word-aquarium {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  .words-input-row {
+    align-items: stretch;
+  }
+
+  .words-submit,
+  .aquarium-shuffle {
+    width: 100%;
+  }
+
+  .words-compose-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .words-aquarium-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .word-aquarium {
+    min-height: 480px;
+    border-radius: 24px;
+  }
+
+  .word-capsule {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 12.5px;
+  }
+
+  .word-capsule-highlight {
+    left: 8px;
+    width: 40%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .words-input,
+  .words-submit,
+  .aquarium-shuffle,
+  .word-capsule {
+    transition: none;
+    animation: none;
+  }
+}
+
+.word-aquarium-loading {
+  position: absolute;
+  inset: auto 18px 16px 18px;
+  margin: 0;
+  color: var(--text-faint);
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: center;
+  pointer-events: none;
+}
