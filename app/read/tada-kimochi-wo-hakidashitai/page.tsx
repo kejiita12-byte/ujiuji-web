@@ -4,7 +4,7 @@ import { ArticlePage } from "@/components/ArticlePage";
 export const metadata: Metadata = {
   title: "ただ気持ちを吐き出したい日があっていい",
   description:
-    "何かを解決したいわけじゃない。ただ気持ちを外に出したい。そんな日に、無理に整理しなくてもいいことを伝えるページです。"
+    "ただ気持ちを吐き出したい。何かを解決したいわけではなく、少し外に出したいだけの日に、無理に整理しなくてもいいことを伝えるページです。"
 };
 
 export default function TadaHakidashitaiPage() {

@@ -4,7 +4,7 @@ import { ArticlePage } from "@/components/ArticlePage";
 export const metadata: Metadata = {
   title: "匿名で気持ちを吐き出したいと思うのは自然です",
   description:
-    "気持ちを吐き出したい。でも誰にも知られたくない。そんなときに、匿名で言葉にできる場所を求める気持ちを静かに受け止めるページです。"
+    "匿名で気持ちを吐き出したい。でも誰にも知られたくない。そんなときに、説明しなくていい距離のまま、気持ちを静かに言葉にできることを伝えるページです。"
 };
 
 export default function AnonymousPage() {

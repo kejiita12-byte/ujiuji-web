@@ -3,8 +3,9 @@ import { EntryList } from "@/components/EntryList";
 import { PageIntro } from "@/components/PageIntro";
 
 export const metadata: Metadata = {
-  title: "読みもの",
-  description: "今の気持ちに近い受け止めページから読めます。最後まで読まなくても大丈夫です。"
+  title: "うまく言えない気持ちの読みもの",
+  description:
+    "ただ気持ちを吐き出したい、匿名で置きたい、うまく言えないけどしんどい。今の気持ちに近い受け止めページから静かに読めます。"
 };
 
 export default function ReadIndexPage() {

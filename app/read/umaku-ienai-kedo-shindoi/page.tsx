@@ -4,7 +4,7 @@ import { ArticlePage } from "@/components/ArticlePage";
 export const metadata: Metadata = {
   title: "うまく言えないけどしんどいとき、無理に説明しなくていい",
   description:
-    "うまく言えないけどしんどい。理由がはっきりしない苦しさを、そのまま受け止め、少しだけ言葉にしやすくするためのページです。"
+    "うまく言えないけどしんどい。理由がはっきりしなくても、無理に説明せず、今の気持ちに近い言葉を少しだけ探してみていいと伝えるページです。"
 };
 
 export default function UmakuIenaiPage() {

@@ -3,9 +3,9 @@ import Image from "next/image";
 import { PageIntro } from "@/components/PageIntro";
 
 export const metadata: Metadata = {
-  title: "アプリについて",
+  title: "返事のいらない匿名SNSアプリ",
   description:
-    "気持ちを、返事のいらない形で外に出せる。UjiUjiが向いている日と、静かに書ける場所であることを伝えるページです。"
+    "匿名で気持ちを置ける、返事のいらないSNSアプリです。人に説明したくない日や、ただ気持ちを吐き出したい日に、静かに書ける場所であることを伝えるページです。"
 };
 
 export default function AppPage() {
