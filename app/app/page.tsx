@@ -50,9 +50,11 @@ export default function AppPage() {
         <div className="download-cta-copy stack-md">
           <div className="app-store-badge-wrap">
             <a
-              href="#"
+              href="https://apps.apple.com/jp/app/id6758415466"
               aria-label="App StoreでUjiUjiをダウンロード"
               className="app-store-badge-link"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Image
                 src="/images/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
