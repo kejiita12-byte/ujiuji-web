@@ -11,24 +11,6 @@ export const navItems = [
   { href: "/app", label: "アプリについて" }
 ] as const;
 
-export const featuredEntries = [
-  {
-    href: "/read/tada-kimochi-wo-hakidashitai",
-    title: "ただ気持ちを吐き出したい",
-    summary: "何かを解決したいわけじゃなく、ただ外に出したい日に。"
-  },
-  {
-    href: "/read/kimochi-wo-hakidashitai-anonymous",
-    title: "匿名で気持ちを置きたい",
-    summary: "誰にも知られずに、静かに置きたいときに。"
-  },
-  {
-    href: "/read/umaku-ienai-kedo-shindoi",
-    title: "うまく言えないけどしんどい",
-    summary: "理由ははっきりしないけれど、何かが重い日に。"
-  }
-] as const;
-
 export const wordChoices = [
   "しんどい",
   "モヤモヤする",

@@ -19,7 +19,7 @@ type ArticlePageProps = {
   ctaBody: ReactNode;
   ctaHref: string;
   ctaLabel: string;
-  related: RelatedEntry[];
+  related?: RelatedEntry[];
 };
 
 export function ArticlePage({
@@ -30,8 +30,10 @@ export function ArticlePage({
   ctaBody,
   ctaHref,
   ctaLabel,
-  related
+  related = []
 }: ArticlePageProps) {
+  const hasRelated = related.length > 0;
+
   return (
     <article className="article stack-2xl">
       <header className="article-header stack-lg text-shell">
@@ -59,16 +61,18 @@ export function ArticlePage({
         </div>
       </section>
 
-      <aside className="related stack-md text-shell" aria-label="関連ページ">
-        <h2 className="related-title">もう少し読むなら</h2>
-        <div className="related-links">
-          {related.map((item) => (
-            <Link key={item.href} href={item.href} className="related-link">
-              {item.title}
-            </Link>
-          ))}
-        </div>
-      </aside>
+      {hasRelated ? (
+        <aside className="related stack-md text-shell" aria-label="関連ページ">
+          <h2 className="related-title">もう少し読むなら</h2>
+          <div className="related-links">
+            {related.map((item) => (
+              <Link key={item.href} href={item.href} className="related-link">
+                {item.title}
+              </Link>
+            ))}
+          </div>
+        </aside>
+      ) : null}
     </article>
   );
 }
