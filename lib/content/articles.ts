@@ -451,6 +451,19 @@ export const articles: ArticleMeta[] = [
   priority: "A",
   published: true,
   order: 510
+},
+{
+  slug: "yanderu-de-katazukeraretakunai",
+  href: "/read/yanderu-de-katazukeraretakunai",
+  title: "病んでるで片づけられたくないとき",
+  summary:
+    "ただ苦しいだけなのに、軽いラベルでまとめられて余計にしんどくなる日に。",
+  description:
+    "ただ苦しいだけなのに、病んでるの一言で片づけられるのがしんどい。気持ちの中身を見てもらえない苦しさを、無理に整理せずそのまま受け止めるためのページです。",
+  cluster: "ラベル",
+  priority: "A",
+  published: true,
+  order: 520
 }
 ];
 
