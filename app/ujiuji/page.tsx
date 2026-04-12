@@ -1,117 +1,104 @@
-import type { Metadata } from "next";
-import { PageIntro } from "@/components/PageIntro";
 import { QuietCTA } from "@/components/QuietCTA";
-
-export const metadata: Metadata = {
-  title: "UjiUjiについて",
-  description:
-    "UjiUjiは、返事のいらない感情の避難所です。どんな場所で、どんな日に向いているのかを静かに伝えるページです。"
+// Next.jsのMetadata API（layout.tsxやpage.tsxで定義する場合）
+// SEOにおいてタイトルとディスクリプションは最重要です。
+export const metadata = {
+  title: "UjiUji Web | 言葉にならない「しんどさ」を置いていける感情の避難所",
+  description: "うまく言えない、整理できない。そんな気持ちをそのまま置いていい場所です。返事はいらない、でもひとりにはしない。あなたのための静かな空間です。",
 };
 
-export default function UjiujiPage() {
+const homeFragments = [
+  "うまく言えない",
+  "今日は少し重い",
+  "ただ外に出したい",
+  "返事はいらない",
+  "まだ相談にはならない"
+] as const;
+
+export default function HomePage() {
   return (
     <div className="stack-2xl page-pad">
-      <PageIntro
-        eyebrow="UjiUjiについて"
-        title="UjiUjiは、返事のいらない感情の避難所です"
-        lead={
-          <>
-            <p>
-              誰にも言えない気持ちを、きれいに整理しないまま置いていける場所として作っています。
-            </p>
-            <p>
-              相談の形にしなくてもいい。うまく書けなくてもいい。返事を待たなくてもいい。そういう場です。
-            </p>
-          </>
-        }
-      />
+      {/* 1. <section>にaria-labelledbyを追加。
+        検索エンジンに「このセクションは～について書かれている」と明確に伝えます。
+      */}
+      <section className="hero stack-lg text-shell" aria-labelledby="hero-title">
+        <p className="eyebrow">UjiUji</p>
+        <div className="hero-copy stack-lg">
+          {/* h1はページに1つ。サイトの核心を突くコピーにします */}
+          <h1 id="hero-title">返事はいらない。<br />でも、ひとりにはしない場所</h1>
+          <div className="lead stack-md">
+            <p>まだうまく言えない気持ちも、ここに置いていい。</p>
+            <p>ちゃんと説明できなくても、きれいに整理できなくても大丈夫です。</p>
+            {/* 「しんどさ」などの重要なワードを<strong>で囲み、強調（強調しすぎないデザインならOK） */}
+            <p>言葉になる前の<strong>しんどさ</strong>に、そっと触れられる場所です。</p>
+          </div>
+        </div>
 
-      <section className="stack-lg text-shell section-copy">
-        <div className="fragment-list" aria-hidden="true">
-          <span>返事を待たなくていい</span>
-          <span>整理されていなくていい</span>
-          <span>うまく書けなくていい</span>
-          <span>少しだけ置いて離れていい</span>
-          <span>だれにも説明しなくていい</span>
+        {/* 2. aria-hidden="true" を削除。
+          これらの言葉は、悩んでいる人が検索しうる「共起語」として非常に価値があります。
+          デザイン上はそのままに、検索エンジンにはインデックスさせます。
+        */}
+        <div className="home-fragments">
+          {homeFragments.map((fragment) => (
+            <span key={fragment} className="fragment-item">{fragment}</span>
+          ))}
         </div>
       </section>
 
-      <section className="stack-md text-shell section-copy">
-        <h2>こういう場所です</h2>
-        <div className="body-text stack-md">
-          <p>
-            気持ちがあるのに、言葉にしようとすると急に遠くなる日があります。
-            説明しようとすると違う気がしたり、誰かに返されることを想像するだけで少し疲れたりすることもあります。
-          </p>
-          <p>
-            UjiUjiは、そういうときに、まだまとまっていない気持ちのまま置いていける場所です。
-            誰かに分かりやすく伝えることより、まず自分の中にある重さを少し外へ出すことを大事にしています。
-          </p>
+      {/* 3. 「UjiUjiとは」をセカンドキーワードの柱にする */}
+      <section className="section-copy stack-lg text-shell" aria-labelledby="about-title">
+        <div className="section-heading stack-sm">
+          <p className="eyebrow">About</p>
+          <h2 id="about-title">弱音をそのまま置いていける、感情の避難所です</h2>
         </div>
-      </section>
-
-      <section className="stack-md text-shell section-copy">
-        <h2>返事がいらないのには理由があります</h2>
-        <div className="body-text stack-md">
+        <div className="section-note stack-sm">
+          <p>うまく書けなくてもいい。前向きな結論がなくてもいい。</p>
           <p>
-            しんどいときほど、人からの反応が重く感じる日があります。
-            やさしい言葉でも返さなきゃと思ってしまったり、期待に応えられないことが負担になったりします。
+            誰かに伝わる形になっていなくても、そのときの気持ちに少し触れられたら、
+            それで十分な日があります。
           </p>
           <p>
-            だからUjiUjiでは、強い会話ややりとりを前提にしていません。
-            触れてくれたことだけが、静かに伝わるくらいの距離感を大切にしています。
+            UjiUjiは、そういう気持ちを静かに受け止めるためにあります。
           </p>
         </div>
       </section>
 
-      <section className="stack-md text-shell section-copy">
-        <h2>向いているかもしれない人</h2>
-        <div className="body-text stack-md">
-          <p>
-            誰にも話したくないわけではないけれど、まだ相談の形にはしたくない人。
-            ただ置きたいだけで、答えや助言までは求めていない人。
-          </p>
-          <p>
-            匿名でいたい人。返事を待ちたくない人。
-            うまく言えないままでも、どこかに気持ちを置いていけたら少し楽かもしれないと思う人に向いています。
-          </p>
-        </div>
-      </section>
-
-      <section className="stack-md text-shell section-copy">
-        <h2>向いていないかもしれません</h2>
-        <div className="body-text stack-md">
-          <p>
-            すぐに具体的な助言がほしいときや、活発なやりとりを求めているときには、少し物足りなく感じるかもしれません。
-          </p>
-          <p>
-            UjiUjiは、強いコミュニティや即時の解決を目指す場所ではなく、まずは気持ちを置いていいと思える静かな入口を目指しています。
-          </p>
-        </div>
-      </section>
-
-      <section className="stack-md text-shell section-copy">
-        <h2>境界線について</h2>
-        <div className="body-text stack-md">
-          <p>
-            UjiUjiは、医療や診断の代わりになるものではありません。
-            ここでできるのは、気持ちを静かに置けることまでです。
-          </p>
-          <p>
-            もし深刻な危機があるときや、すぐに専門的な支援が必要だと感じるときは、外の支援につながることも大切です。
-          </p>
-        </div>
-      </section>
-
+      {/* 4. QuietCTA内のタイトルが内部的に何タグかによりますが、
+        理想は <h3> でマークアップされていることです。
+      */}
       <QuietCTA
-        title="書いて置いていける場所として"
+        title="今の気持ちに近い読みものにふれる"
         description={
           <>
-            <p>返事を前提にしないまま、まだまとまっていない気持ちを置いていくことができます。</p>
+            <p>ただ気持ちを吐き出したい日、うまく言えないけどしんどい日。</p>
+            <p>今の自分に近いページを探してみてください。</p>
+          </>
+        }
+        href="/read"
+        label="読みものを見る"
+      />
+
+      <QuietCTA
+        title="まだまとまっていなくても、少しだけ言葉にしてみる"
+        description={
+          <>
+            <p>今の気持ちに近い言葉を探したり、少しだけ吐き出す場所です。</p>
+            <p>答えを出すためではなく、ただ少し輪郭に触れるためのページです。</p>
+          </>
+        }
+        href="/words"
+        label="気持ちを言葉にしてみる"
+      />
+
+      <QuietCTA
+        title="しんどいときに、UjiUjiができること"
+        description={
+          <>
+            <p>どう話したらいいかわからない。</p>
+            <p>でも気持ちを吐き出したいとき、そっと置いていける場所です。</p>
           </>
         }
         href="/app"
-        label="アプリについて見る"
+        label="UjiUjiアプリを見る"
       />
     </div>
   );
