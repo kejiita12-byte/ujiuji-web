@@ -27,7 +27,7 @@ export default function UmakuIenaiPage() {
         }
         sections={[
           {
-            heading: "理由がはっきりしない苦しさもある",
+            heading: "理由がはっきりしないまま、重くなることがある",
             body: (
               <>
                 <p>
@@ -47,11 +47,11 @@ export default function UmakuIenaiPage() {
             )
           },
           {
-            heading: "近い言葉をひとつだけ探してみる",
+            heading: "ぴったりじゃなくても、近い言葉がひとつあればいい",
             body: (
               <>
                 <p>
-                  ぴったりの説明を見つけようとしなくて大丈夫です。
+                  ちゃんとした説明を見つけようとしなくて大丈夫です。
                   まずは、今の感覚に少し近い言葉をひとつだけ拾うくらいで十分です。
                 </p>
                 <div className="word-list" aria-label="今の気持ちに近い言葉の例">
@@ -66,13 +66,14 @@ export default function UmakuIenaiPage() {
                 </div>
                 <p>
                   どれも違うなら、「なんか違う」でもかまいません。
-                  言葉を当てることは正解を出すことではなく、いまの自分から離れすぎないための小さな手がかりです。
+                  言葉を当てることは正解を出すことではなく、
+                  いまの自分から離れすぎないための小さな手がかりです。
                 </p>
               </>
             )
           },
           {
-            heading: "無理に答えを出さなくてもいい",
+            heading: "まだわからないままで、止まっていていい",
             body: (
               <>
                 <p>
@@ -90,7 +91,7 @@ export default function UmakuIenaiPage() {
             )
           },
           {
-            heading: "一文にならなくても、大丈夫です",
+            heading: "一文にならなくても、そのままで大丈夫です",
             body: (
               <>
                 <p>
@@ -106,15 +107,10 @@ export default function UmakuIenaiPage() {
             )
           }
         ]}
-        ctaTitle="うまく言えないままでいても、大丈夫です"
+        ctaTitle="うまく言えない、そんな気持ちを置いていく場所もあります"
         ctaBody={
           <>
-            <p>
-              気持ちがまだはっきりしていなくても、無理に説明しなくて大丈夫です。
-            </p>
-            <p>
-              UjiUjiには、言葉になりきらないままの気持ちに、静かに触れられる場所があります。
-            </p>
+            <p>まだはっきりしていなくても、そのまま書けます。</p>
           </>
         }
         ctaHref="/ujiuji"
