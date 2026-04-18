@@ -1326,3 +1326,51 @@ h3 {
     padding-bottom: 84px;
   }
 }
+
+/* =========================
+   article reading width
+   ========================= */
+
+.article-page {
+  width: min(100%, 680px);
+  margin: 0 auto;
+}
+
+.article-page .text-shell,
+.article-page .article-header,
+.article-page .article-section,
+.article-page .article-cta,
+.article-page .article-related {
+  width: 100%;
+  max-width: 100%;
+}
+
+.article-page .article-lead,
+.article-page .article-section-body {
+  max-width: 36rem;
+}
+
+.article-page .article-section h2,
+.article-page .article-cta h2,
+.article-page .article-related h2 {
+  max-width: 36rem;
+}
+
+.article-page h1 {
+  max-width: 90ch;
+}
+
+@media (max-width: 720px) {
+  .article-page {
+    width: 100%;
+  }
+
+  .article-page .article-lead,
+  .article-page .article-section-body {
+    max-width: none;
+  }
+
+  .article-page h1 {
+    max-width: none;
+  }
+}

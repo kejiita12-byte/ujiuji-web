@@ -64,7 +64,7 @@ export default async function HubPage({ params }: PageProps) {
         aria-labelledby="hub-entries"
       >
         <h2 id="hub-entries" className="read-section-label">
-          このテーマのページ
+          このテーマの読みもの
         </h2>
 
         <div className="entry-list" role="list">

@@ -43,7 +43,7 @@ export default function ReadIndexPage() {
 </section>
 
 <section className="stack-lg text-shell read-group" aria-labelledby="article-list">
-  <h2 id="article-list" className="read-section-label">ページ一覧</h2>
+  <h2 id="article-list" className="read-section-label">読みもの一覧</h2>
   <div className="entry-list" role="list">
     {articles.map((article) => {
       const hub = hubs.find((item) => item.slug === article.hubSlug);
