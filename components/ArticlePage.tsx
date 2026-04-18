@@ -1,77 +1,116 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
-
-type ArticleSection = {
-  heading: string;
-  body: ReactNode;
-};
+import { ReactNode } from "react";
 
 type RelatedEntry = {
   href: string;
   title: string;
+  summary: string;
 };
 
-type ArticlePageProps = {
+export type ArticlePageSection = {
+  heading?: string;
+  body: ReactNode;
+};
+
+type Props = {
   title: string;
   lead: ReactNode;
-  sections: ArticleSection[];
-  ctaTitle: string;
-  ctaBody: ReactNode;
-  ctaHref: string;
-  ctaLabel: string;
+  sections: ArticlePageSection[];
+  ctaBody?: ReactNode;
+  ctaHref?: string;
+  ctaLabel?: string;
+  ctaTitle?: string;
   related?: RelatedEntry[];
+  relatedTitle?: string;
+  headingGuideLabel?: string;
 };
+
+const DEFAULT_CTA_TITLE = "ただ置いていける場所がほしいなら";
+const DEFAULT_CTA_LABEL = "気持ちを置ける場所を見る";
+const DEFAULT_RELATED_TITLE = "近いページ";
+const DEFAULT_HEADING_GUIDE_LABEL = "ここに書かれていること";
 
 export function ArticlePage({
   title,
   lead,
   sections,
-  ctaTitle,
   ctaBody,
   ctaHref,
   ctaLabel,
-  related = []
-}: ArticlePageProps) {
-  const hasRelated = related.length > 0;
+  ctaTitle,
+  related = [],
+  relatedTitle = DEFAULT_RELATED_TITLE,
+  headingGuideLabel = DEFAULT_HEADING_GUIDE_LABEL
+}: Props) {
+  const hasCta = Boolean(ctaBody || ctaHref);
+  const visibleRelated = related.slice(0, 2);
+  const resolvedCtaTitle = ctaTitle ?? DEFAULT_CTA_TITLE;
+  const resolvedCtaLabel = ctaLabel ?? DEFAULT_CTA_LABEL;
+
+  const sectionHeadings = sections
+    .map((section) => section.heading?.trim())
+    .filter((heading): heading is string => Boolean(heading));
 
   return (
-    <article className="article stack-2xl">
+    <article className="article-page stack-3xl">
       <header className="article-header stack-lg text-shell">
-        <p className="eyebrow">読みもの</p>
         <h1>{title}</h1>
-        <div className="lead stack-md">{lead}</div>
+
+        <div className="article-lead section-copy stack-md">{lead}</div>
       </header>
 
-      <div className="article-sections stack-2xl">
-        {sections.map((section) => (
-          <section key={section.heading} className="article-block stack-md">
-            <h2>{section.heading}</h2>
-            <div className="body-text stack-md">{section.body}</div>
+      <div className="article-body stack-3xl">
+        {sections.map((section, index) => (
+          <section
+            key={`${section.heading ?? "section"}-${index}`}
+            className="article-section stack-md text-shell"
+          >
+            {section.heading ? <h2>{section.heading}</h2> : null}
+            <div className="article-section-body section-copy stack-md">
+              {section.body}
+            </div>
           </section>
         ))}
       </div>
 
-      <section className="quiet-cta stack-md text-shell">
-        <h2>{ctaTitle}</h2>
-        <div className="body-text stack-md">{ctaBody}</div>
-        <div>
-          <Link href={ctaHref} className="text-button">
-            {ctaLabel}
-          </Link>
-        </div>
-      </section>
+      {hasCta ? (
+        <section className="article-cta stack-md text-shell">
+          <h2>{resolvedCtaTitle}</h2>
+          {ctaBody ? (
+            <div className="article-section-body section-copy stack-md">
+              {ctaBody}
+            </div>
+          ) : null}
+          {ctaHref ? (
+            <div className="article-cta-action">
+              <Link href={ctaHref} className="inline-cta">
+                {resolvedCtaLabel}
+              </Link>
+            </div>
+          ) : null}
+        </section>
+      ) : null}
 
-      {hasRelated ? (
-        <aside className="related stack-md text-shell" aria-label="関連ページ">
-          <h2 className="related-title">もう少し読むなら</h2>
-          <div className="related-links">
-            {related.map((item) => (
-              <Link key={item.href} href={item.href} className="related-link">
-                {item.title}
+      {visibleRelated.length > 0 ? (
+        <section
+          className="article-related stack-lg text-shell"
+          aria-labelledby="related-pages"
+        >
+          <h2 id="related-pages">{relatedTitle}</h2>
+          <div className="entry-list" role="list">
+            {visibleRelated.map((entry) => (
+              <Link
+                key={entry.href}
+                href={entry.href}
+                className="entry-link"
+                role="listitem"
+              >
+                <span className="entry-title">{entry.title}</span>
+                <span className="entry-summary">{entry.summary}</span>
               </Link>
             ))}
           </div>
-        </aside>
+        </section>
       ) : null}
     </article>
   );

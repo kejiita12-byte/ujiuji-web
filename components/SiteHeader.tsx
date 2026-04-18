@@ -4,7 +4,7 @@ import { navItems } from "@/lib/site";
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <div className="shell header-inner">
+      <div className="header-shell header-inner">
         <Link href="/" className="brand" aria-label="UjiUji Web トップページへ">
           UjiUji
         </Link>
